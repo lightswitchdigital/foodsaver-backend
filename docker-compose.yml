@@ -7,8 +7,6 @@ services:
         working_dir: /var/www/
         volumes:
             - ./:/var/www
-        networks:
-            - default
     db:
         image: mysql:5.7
         container_name: foodsaver-db
@@ -22,23 +20,13 @@ services:
             SERVICE_NAME: mysql
         volumes:
             - ./docker-compose/mysql:/docker-entrypoint-initdb.d
-        networks:
-            - default
 
     nginx:
         image: nginx:alpine
         container_name: travellist-nginx
         restart: unless-stopped
         ports:
-            - 8000:80
+            - "192.168.1.114:8000:80"
         volumes:
             - ./:/var/www
             - ./docker-compose/nginx:/etc/nginx/conf.d/
-        networks:
-            - default
-networks:
-    default:
-        ipam:
-            driver: default
-            config:
-                -   subnet: 172.33.0.0/16
