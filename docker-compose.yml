@@ -1,8 +1,8 @@
 version: "3.7"
 services:
     app:
-        image: sireax/foodsaver-backend
-        container_name: foodsaver-backend
+        image: sireax/foodsaver
+        container_name: foodsaver
         restart: unless-stopped
         working_dir: /var/www/
         volumes:
