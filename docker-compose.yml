@@ -7,7 +7,6 @@ services:
         working_dir: /var/www/
         volumes:
             - ./:/var/www
-
     db:
         image: mysql:5.7
         container_name: foodsaver-db
