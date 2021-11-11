@@ -30,3 +30,9 @@ services:
         volumes:
             - ./:/var/www
             - ./docker-compose/nginx:/etc/nginx/conf.d/
+networks:
+    default:
+        ipam:
+            driver: default
+            config:
+                -   subnet: 172.33.0.0/16
