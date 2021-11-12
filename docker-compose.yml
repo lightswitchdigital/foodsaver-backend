@@ -13,9 +13,9 @@ services:
         restart: unless-stopped
         ports:
             - '3000:3000'
-        working_dir: /var/www/frontend
+        working_dir: /frontend
         volumes:
-            - ./:/var/www/frontend
+            - ./:/frontend
     db:
         image: mysql:5.7
         container_name: foodsaver-db
@@ -37,4 +37,5 @@ services:
             - "192.168.1.114:80:80"
         volumes:
             - ./:/var/www/api
+            - ./:/frontend
             - ./docker-compose/nginx:/etc/nginx/conf.d/
