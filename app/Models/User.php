@@ -20,6 +20,7 @@ class User extends Authenticatable
         'email',
         'sub',
         'password',
+        'role'
     ];
 
     protected $hidden = [
@@ -43,4 +44,8 @@ class User extends Authenticatable
         ];
     }
 
+    public function command()
+    {
+        return $this->belongsTo(Command::class);
+    }
 }

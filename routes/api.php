@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\CommandsController;
+use App\Http\Controllers\Api\OrganizationsController;
 use App\Http\Controllers\Api\QAController;
 use App\Http\Controllers\Api\SettingsController;
 use App\Http\Controllers\Api\WardsController;
@@ -33,8 +35,20 @@ Route::group([
         'as' => 'organizations.'
     ], function () {
 
-        Route::get('/get', [WardsController::class, 'get'])->name('get');
-        Route::get('/{organization}', [WardsController::class, 'show'])->name('show');
+        Route::get('/get', [OrganizationsController::class, 'get'])->name('get');
+        Route::get('/{organization}', [OrganizationsController::class, 'show'])->name('show');
+
+    });
+
+    ///////////////////
+    /// Organizations
+
+    Route::group([
+        'prefix' => 'commands',
+        'as' => 'commands.'
+    ], function () {
+
+        Route::get('/', [CommandsController::class, 'get'])->name('get');
 
     });
 
