@@ -14,8 +14,6 @@ services:
         ports:
             - '3000:3000'
         working_dir: /frontend
-        volumes:
-            - ./:/frontend
     db:
         image: mysql:5.7
         container_name: foodsaver-db
