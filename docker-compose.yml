@@ -9,11 +9,11 @@ services:
             - ./:/var/www/api
     frontend:
         image: sireax/fs-frontend
-        container_name: react-frontend
+        container_name: foodsaver-frontend
         restart: unless-stopped
         ports:
             - '3000:3000'
-        working_dir: /var/www/api
+        working_dir: /var/www/frontend
         volumes:
             - ./:/var/www/frontend
     db:
