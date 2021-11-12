@@ -23,6 +23,6 @@ WORKDIR /var/www/api
 
 COPY . /var/www/api
 
-RUN chmod 777 /var/www/api/public
+RUN chmod -R 755 /var/www/api
 
 RUN /usr/bin/composer install
