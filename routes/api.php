@@ -4,8 +4,8 @@ use App\Http\Controllers\Api\QAController;
 use App\Http\Controllers\Api\SettingsController;
 use App\Http\Controllers\Api\WardsController;
 use App\Http\Controllers\Auth\Auth0IndexController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 
 Route::group([
     'middleware' => 'api',
