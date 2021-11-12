@@ -22,6 +22,6 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 WORKDIR /var/www/api
 
 COPY . /var/www/api
-RUN chmod 755 /var/www/public
+RUN chmod 755 /var/www/api/public
 
 RUN /usr/bin/composer install

@@ -6,7 +6,7 @@ services:
         restart: unless-stopped
         working_dir: /var/www/api
         volumes:
-            - ./:/var/www/api
+            - ./:/var/www
     db:
         image: mysql:5.7
         container_name: foodsaver-db
