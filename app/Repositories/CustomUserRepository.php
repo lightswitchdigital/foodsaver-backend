@@ -11,6 +11,7 @@ use Illuminate\Contracts\Auth\Authenticatable;
 
 class CustomUserRepository extends Auth0UserRepository
 {
+
     protected function upsertUser($profile)
     {
         return User::firstOrCreate(['sub' => $profile['sub']], [

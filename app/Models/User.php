@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -12,6 +11,9 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public const ROLE_VOLUNTEER = 'volunteer';
+    public const ROLE_CURATOR = 'curator';
+    public const ROLE_ADMIN = 'admin';
 
     protected $fillable = [
         'name',
@@ -20,14 +22,25 @@ class User extends Authenticatable
         'password',
     ];
 
-
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public $timestamps = true;
+
+
+    public static function rolesList()
+    {
+        return [
+            self::ROLE_VOLUNTEER => 'Волонтер',
+            self::ROLE_CURATOR => 'Куратор',
+            self::ROLE_ADMIN => 'Админ',
+        ];
+    }
+
 }
