@@ -20,13 +20,12 @@ services:
             SERVICE_NAME: mysql
         volumes:
             - ./docker-compose/mysql:/docker-entrypoint-initdb.d
-
     nginx:
         image: nginx:alpine
-        container_name: travellist-nginx
+        container_name: foodsaver-nginx
         restart: unless-stopped
         ports:
-            - "192.168.1.114:8000:80"
+            - "192.168.1.114:80:80"
         volumes:
             - ./:/var/www
             - ./docker-compose/nginx:/etc/nginx/conf.d/
