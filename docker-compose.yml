@@ -27,5 +27,5 @@ services:
         ports:
             - "192.168.1.114:80:80"
         volumes:
-            - ./:/var/www
+            - ./:/var/www/api
             - ./docker-compose/nginx:/etc/nginx/conf.d/
