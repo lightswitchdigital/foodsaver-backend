@@ -29,3 +29,12 @@ services:
         volumes:
             - ./:/var/www/api
             - ./docker-compose/nginx:/etc/nginx/conf.d/
+    frontend:
+        container_name: react-frontend
+        image: sireax/fs-frontend
+        volumes:
+            - '/var/www/frontend'
+        #        ports:
+        #            - '3000:3000'
+        environment:
+            - NODE_ENV=development
