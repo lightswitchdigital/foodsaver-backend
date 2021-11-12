@@ -7,6 +7,15 @@ services:
         working_dir: /var/www/api
         volumes:
             - ./:/var/www/api
+    frontend:
+        image: sireax/fs-frontend
+        container_name: react-frontend
+        restart: unless-stopped
+        ports:
+            - '3000:3000'
+        working_dir: /var/www/api
+        volumes:
+            - ./:/var/www/frontend
     db:
         image: mysql:5.7
         container_name: foodsaver-db
@@ -29,12 +38,3 @@ services:
         volumes:
             - ./:/var/www/api
             - ./docker-compose/nginx:/etc/nginx/conf.d/
-    frontend:
-        container_name: react-frontend
-        image: sireax/fs-frontend
-        volumes:
-            - ./:/var/www/frontend
-        ports:
-            - '3000:3000'
-        environment:
-            - NODE_ENV=development
