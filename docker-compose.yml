@@ -1,5 +1,18 @@
 version: "3.7"
 services:
+    db:
+        image: mysql:5.7
+        container_name: foodsaver-db
+        restart: unless-stopped
+        environment:
+            MYSQL_DATABASE: foodsaver
+            MYSQL_ROOT_PASSWORD: secret
+            MYSQL_PASSWORD: secret
+            MYSQL_USER: foodsaver
+            SERVICE_TAGS: dev
+            SERVICE_NAME: mysql
+        volumes:
+            - ./docker-compose/mysql:/docker-entrypoint-initdb.d
     api:
         image: sireax/foodsaver
         container_name: foodsaver-api
@@ -14,19 +27,6 @@ services:
         ports:
             - '3000:3000'
         working_dir: /frontend
-    db:
-        image: mysql:5.7
-        container_name: foodsaver-db
-        restart: unless-stopped
-        environment:
-            MYSQL_DATABASE: foodsaver
-            MYSQL_ROOT_PASSWORD: secret
-            MYSQL_PASSWORD: secret
-            MYSQL_USER: foodsaver
-            SERVICE_TAGS: dev
-            SERVICE_NAME: mysql
-        volumes:
-            - ./docker-compose/mysql:/docker-entrypoint-initdb.d
     nginx:
         image: nginx:alpine
         container_name: foodsaver-nginx

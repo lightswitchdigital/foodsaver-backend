@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\ActsController;
 use App\Http\Controllers\Api\CommandsController;
 use App\Http\Controllers\Api\OrganizationsController;
 use App\Http\Controllers\Api\QAController;
@@ -24,6 +25,20 @@ Route::group([
 
         Route::get('/get', [WardsController::class, 'get'])->name('get');
         Route::get('/{ward}', [WardsController::class, 'show'])->name('show');
+
+    });
+
+    /////////////
+    /// Acts
+
+    Route::group([
+        'prefix' => 'acts',
+        'as' => 'acts.'
+    ], function () {
+
+        Route::get('/get', [ActsController::class, 'get'])->name('get');
+        Route::get('/upload', [ActsController::class, 'upload'])->name('upload');
+        Route::get('/{act}', [ActsController::class, 'show'])->name('show');
 
     });
 
