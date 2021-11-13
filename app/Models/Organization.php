@@ -16,4 +16,9 @@ class Organization extends Model
     ];
 
     public $timestamps = true;
+
+    public function commands()
+    {
+        return $this->hasMany(Command::class);
+    }
 }

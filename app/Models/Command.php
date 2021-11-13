@@ -24,16 +24,21 @@ class Command extends Model
 
     public function members()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsToMany(User::class, 'user_commands', 'command_id', 'user_id');
     }
 
     public function curator()
     {
-        return $this->hasOne(User::class)->where('role', User::ROLE_CURATOR);
+        return $this->members()->where('role', User::ROLE_CURATOR);
     }
 
     public function volunteers()
     {
         return $this->members()->where('role', User::ROLE_VOLUNTEER);
+    }
+
+    public function organization()
+    {
+        return $this->belongsTo(Organization::class);
     }
 }

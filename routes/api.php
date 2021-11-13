@@ -63,7 +63,7 @@ Route::group([
         'as' => 'commands.'
     ], function () {
 
-        Route::get('/', [CommandsController::class, 'get'])->name('get');
+        Route::get('/get', [CommandsController::class, 'get'])->name('get');
 
     });
 

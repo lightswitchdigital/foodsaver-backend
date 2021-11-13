@@ -44,9 +44,9 @@ class User extends Authenticatable
         ];
     }
 
-    public function command()
+    public function commands()
     {
-        return $this->belongsTo(Command::class);
+        return $this->belongsToMany(Command::class, 'user_commands', 'user_id', 'command_id');
     }
 
     public function achievements()
