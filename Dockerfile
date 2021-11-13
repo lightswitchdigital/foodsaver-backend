@@ -26,5 +26,3 @@ COPY . /var/www/api
 RUN chmod -R 755 /var/www/api
 
 RUN /usr/bin/composer install
-
-RUN /bin/sh c.sh

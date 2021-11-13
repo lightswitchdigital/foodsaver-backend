@@ -48,4 +48,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Command::class);
     }
+
+    public function achievements()
+    {
+        return $this->belongsToMany(Achievement::class, 'user_achievements', 'user_id', 'achievement_id');
+    }
 }
