@@ -26,8 +26,3 @@ COPY . /var/www/api
 RUN chmod -R 755 /var/www/api
 
 RUN /usr/bin/composer install
-
-RUN php artisan migrate
-RUN php artisan db:seed --class=UsersSeeder
-RUN php artisan db:seed --class=WardsSeeder
-RUN php artisan db:seed --class=OrganizationsSeeder
