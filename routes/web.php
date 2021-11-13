@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    abort(404);
 });
 
-Route::get('/auth0/callback', [Auth0Controller::class, 'callback'])->name('auth0-callback');
